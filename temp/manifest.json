@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.10/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.10",
+  "id": "185492e8-7164-403f-b6f7-29aea3ee6e35",
+  "version": "1.0.3",
+  "packageName": "messagingext",
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://sridev.ngrok.io",
+    "privacyUrl": "https://sridev.ngrok.io/privacy.html",
+    "termsOfUseUrl": "https://sridev.ngrok.io/tou.html"
+  },
+  "name": {
+    "short": "Our Planets",
+    "full": "View Our Planets Info"
+  },
+  "description": {
+    "short": "TODO: add short description here",
+    "full": "TODO: add full description here"
+  },
+  "icons": {
+    "outline": "icon-outline.png",
+    "color": "icon-color.png"
+  },
+  "accentColor": "#D85028",
+  "configurableTabs": [],
+  "staticTabs": [],
+  "bots": [],
+  "connectors": [],
+  "composeExtensions": [
+    {
+      "botId": "185492e8-7164-403f-b6f7-29aea3ee6e35",
+      "canUpdateConfiguration": false,
+      "commands": [
+        {
+          "id": "planetExpanderAction",
+          "type": "action",
+          "title": "Out Planets Ext",
+          "description": "Lookup the details of a planet.",
+          "context": [
+            "compose",
+            "message"
+          ],
+          "fetchTask": true
+        },
+        {
+          "id": "planetLookupMessageExtension",
+          "type": "query",
+          "title": "Planet Lookup",
+          "description": "Search for a planet.",
+          "context": ["compose"],
+          "initialRun": false,
+          "parameters": [{
+            "name": "searchKeyword",
+            "description": "Enter 'inner','outer' or the name of a specific planet",
+            "title": "Planet"
+          }]
+        }
+      ],
+      "messageHandlers": [
+        {
+          "type": "link",
+          "value": {
+            "domains": [
+              "*.wikipedia.org"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "sridev.ngrok.io",
+    "*.wikipedia.org"
+  ],
+  "showLoadingIndicator": false
+}
