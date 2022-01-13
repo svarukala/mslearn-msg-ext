@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.10/MicrosoftTeams.schema.json",
   "manifestVersion": "1.10",
   "id": "185492e8-7164-403f-b6f7-29aea3ee6e35",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "packageName": "messagingext",
   "developer": {
     "name": "Contoso",

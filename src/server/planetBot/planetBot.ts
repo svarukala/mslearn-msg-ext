@@ -14,6 +14,7 @@ import {
   const log = debug("msteams");
   
   export class PlanetBot extends TeamsActivityHandler {
+
     protected handleTeamsMessagingExtensionFetchTask(context: TurnContext, action: MessagingExtensionAction): Promise<MessagingExtensionActionResponse> {
         // load planets & sort them by their order from the sun
         const planets: any = require("./planets.json");
@@ -58,7 +59,7 @@ import {
             // generate the response
             return Promise.resolve({
               composeExtension: {
-                type: "result", //message, auth, config
+                type: "result", //message, auth, config, continue
                 attachmentLayout: "list",
                 attachments: [adaptiveCard]
               }
@@ -136,7 +137,7 @@ import {
         const planets: any = require("./planets.json");
         // get the selected planet
         const selectedPlanet: any = planets.filter((planet) => planet.wikiLink === query.url)[0];
-        const adaptiveCard = this.getPlanetDetailCard(selectedPlanet);
+        const adaptiveCard = this.getPlanetResultCard(selectedPlanet); //this.getPlanetDetailCard(selectedPlanet);
     
         // generate the response
         return Promise.resolve(<MessagingExtensionActionResponse>{
