@@ -120,7 +120,7 @@ import {
             const response: MessagingExtensionResponse = {
               composeExtension: {
                 type: "result", //message, auth, config
-                attachmentLayout: "list",
+                attachmentLayout: "list", //grid, carousel
                 attachments: searchResultsCards
               }
             } as MessagingExtensionResponse;
